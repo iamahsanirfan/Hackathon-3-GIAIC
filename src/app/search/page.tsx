@@ -78,7 +78,7 @@ export default function SearchPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-light mb-8">
-          Search Results for "{query}"
+          Search Results for &quot;{query}&quot;
         </h1>
         
         {products.length === 0 ? (
@@ -90,7 +90,7 @@ export default function SearchPage() {
             {products.map((product) => {
               const imageUrl = builder.image(product.image).width(600).height(600).url();
               const originalPrice = product.discountPercentage 
-                ? Math.round(product.price / (1 - product.discountPercentage/100))
+                ? Math.round(product.price / (1 - product.discountPercentage / 100))
                 : null;
               const isInWishlist = wishlist.includes(product._id);
 
@@ -101,9 +101,7 @@ export default function SearchPage() {
                     className="absolute top-4 right-4 z-20 p-2 bg-white rounded-full shadow-lg hover:bg-[#FFF9E5] transition-all"
                   >
                     <svg
-                      className={`w-6 h-6 ${
-                        isInWishlist ? 'text-[#B88E2F] fill-current' : 'text-gray-300'
-                      }`}
+                      className={`w-6 h-6 ${isInWishlist ? 'text-[#B88E2F] fill-current' : 'text-gray-300'}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -134,9 +132,7 @@ export default function SearchPage() {
                       {product.name}
                     </h3>
                     <div className="flex items-baseline gap-2">
-                      <p className={`text-xl ${
-                        product.discountPercentage ? 'text-red-500' : 'text-gray-900'
-                      }`}>
+                      <p className={`text-xl ${product.discountPercentage ? 'text-red-500' : 'text-gray-900'}`}>
                         Rs {product.price.toFixed(2)}
                       </p>
                       {product.discountPercentage && (

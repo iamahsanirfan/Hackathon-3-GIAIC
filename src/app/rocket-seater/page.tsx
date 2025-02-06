@@ -52,12 +52,12 @@ export default function RocketSeatProduct() {
     discountPercentage: 15,
     image: {
       asset: {
-        _ref: 'dummy-ref' // Not used but required by interface
+        _ref: 'dummy-ref'
       }
     }
   };
 
-  const imageUrl = '/seat.png'; // Static image path
+  const imageUrl = '/seat.png';
 
   useEffect(() => {
     const fetchRelatedProducts = async () => {
@@ -78,7 +78,7 @@ export default function RocketSeatProduct() {
     };
 
     fetchRelatedProducts();
-  }, []);
+  }, [selectedProduct._id]); // Fixed dependency array
 
   const handleAddToCart = () => {
     addToCart(selectedProduct._id, quantity, selectedProduct.price);
@@ -150,7 +150,6 @@ export default function RocketSeatProduct() {
   );
 }
 
-// Helper Components
 const WishlistCounter = ({ wishlist }: { wishlist: string[] }) => (
   <Link href="/wishlist" className="flex items-center gap-2 group relative">
     <svg className="w-6 h-6 text-[#B88E2F]" fill="currentColor" viewBox="0 0 24 24">
