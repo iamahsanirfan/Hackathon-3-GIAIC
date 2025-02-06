@@ -69,12 +69,13 @@ export default function Shop() {
           }
         }`
 
-        const data = await sanity.fetch(query)
+        // Use a generic to tell TypeScript that data is an array of SanityProduct
+        const data = await sanity.fetch<SanityProduct[]>(query)
         setProducts(data)
         setFilteredProducts(data)
         
         const uniqueCategories = Array.from(
-          new Set(data.map(p => p.category).filter(c => c))
+          new Set(data.map((p: SanityProduct) => p.category).filter(c => c))
         ) as string[]
         setCategories(uniqueCategories)
         
@@ -209,7 +210,7 @@ export default function Shop() {
         </div>
       </div>
 
-      {/* * Filters Section */} 
+      {/* Filters Section */}
       <div className="w-full bg-[#FAF4F4] relative">
         <div className="mx-auto flex h-auto flex-col justify-between gap-4 px-4 py-4 md:h-[100px] md:flex-row md:items-center md:px-8 lg:px-16">
           <div className="flex flex-wrap items-center gap-4 relative">
@@ -304,7 +305,7 @@ export default function Shop() {
           {currentProducts.map((product) => {
             const imageUrl = builder.image(product.image).width(600).height(600).url()
             const originalPrice = product.discountPercentage 
-              ? Math.round(product.price / (1 - product.discountPercentage/100))
+              ? Math.round(product.price / (1 - product.discountPercentage / 100))
               : null
             const isInWishlist = wishlist.includes(product._id)
 
@@ -312,15 +313,11 @@ export default function Shop() {
               <Link 
                 key={product._id}
                 href={`/products/${product._id}`}
-                className={`group block transition-transform hover:scale-[1.02] relative h-full ${
-                  viewMode === 'list' ? 'flex gap-6 items-center' : ''
-                }`}
+                className={`group block transition-transform hover:scale-[1.02] relative h-full ${viewMode === 'list' ? 'flex gap-6 items-center' : ''}`}
               >
                 <button
                   onClick={(e) => handleWishlistToggle(e, product._id)}
-                  className={`absolute top-2 right-2 z-20 p-2 bg-white rounded-full shadow-md transition-all ${
-                    isInWishlist ? 'text-[#B88E2F]' : 'text-gray-300 hover:text-[#B88E2F]'
-                  }`}
+                  className={`absolute top-2 right-2 z-20 p-2 bg-white rounded-full shadow-md transition-all ${isInWishlist ? 'text-[#B88E2F]' : 'text-gray-300 hover:text-[#B88E2F]'}`}
                 >
                   <svg
                     className="w-6 h-6"
@@ -343,12 +340,8 @@ export default function Shop() {
                   </div>
                 )}
 
-                <div className={`h-full flex ${
-                  viewMode === 'list' ? 'flex-row w-full' : 'flex-col'
-                } rounded-lg border border-gray-200 bg-white p-4 transition-shadow hover:shadow-md md:p-6`}>
-                  <div className={`relative mb-4 ${
-                    viewMode === 'list' ? 'w-1/3 aspect-square' : 'aspect-square'
-                  } overflow-hidden`}>
+                <div className={`h-full flex ${viewMode === 'list' ? 'flex-row w-full' : 'flex-col'} rounded-lg border border-gray-200 bg-white p-4 transition-shadow hover:shadow-md md:p-6`}>
+                  <div className={`relative mb-4 ${viewMode === 'list' ? 'w-1/3 aspect-square' : 'aspect-square'} overflow-hidden`}>
                     <Image
                       src={imageUrl}
                       alt={product.name}
@@ -358,17 +351,13 @@ export default function Shop() {
                     />
                   </div>
 
-                  <div className={`flex flex-col flex-1 ${
-                    viewMode === 'list' ? 'w-2/3 pl-4' : ''
-                  }`}>
+                  <div className={`flex flex-col flex-1 ${viewMode === 'list' ? 'w-2/3 pl-4' : ''}`}>
                     <div className={viewMode === 'list' ? 'text-left' : 'text-center'}>
                       <p className="mb-1 text-sm text-gray-500">{product.category}</p>
                       <p className="mb-2 line-clamp-2 text-base font-medium text-gray-800 md:text-lg min-h-[3rem]">
                         {product.name}
                       </p>
-                      <div className={`mb-2 text-sm text-gray-600 ${
-                        viewMode === 'list' ? 'line-clamp-5' : 'line-clamp-3'
-                      } min-h-[4.5rem]`}>
+                      <div className={`mb-2 text-sm text-gray-600 ${viewMode === 'list' ? 'line-clamp-5' : 'line-clamp-3'} min-h-[4.5rem]`}>
                         {product.description}
                       </div>
                     </div>
@@ -495,8 +484,6 @@ export default function Shop() {
         </div>
       </div>
     </main>
-      
-    
   )
 }
 

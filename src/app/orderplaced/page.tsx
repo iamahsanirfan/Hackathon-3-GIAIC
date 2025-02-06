@@ -9,7 +9,9 @@ export default function OrderPlacedPage() {
 
   useEffect(() => {
     clearCart()
-  }, [clearCart]) // Added clearCart to dependency array
+    // We only want to clear the cart once on mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <main className="min-h-screen bg-[#FAF4F4] pt-24 px-4 md:px-8 lg:px-16">
@@ -26,7 +28,9 @@ export default function OrderPlacedPage() {
           </div>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">Order Placed Successfully!</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          Order Placed Successfully!
+        </h1>
         <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
           Thank you for your purchase. Your order has been confirmed and will be processed shortly.
         </p>
@@ -37,17 +41,23 @@ export default function OrderPlacedPage() {
             <div className="p-4">
               <div className="text-4xl text-[#B88E2F] mb-4">1</div>
               <h3 className="font-medium mb-2">Order Processing</h3>
-              <p className="text-gray-600">We&apos;re preparing your items for shipment</p>
+              <p className="text-gray-600">
+                We&apos;re preparing your items for shipment
+              </p>
             </div>
             <div className="p-4">
               <div className="text-4xl text-[#B88E2F] mb-4">2</div>
               <h3 className="font-medium mb-2">Quality Check</h3>
-              <p className="text-gray-600">Ensuring your items meet our standards</p>
+              <p className="text-gray-600">
+                Ensuring your items meet our standards
+              </p>
             </div>
             <div className="p-4">
               <div className="text-4xl text-[#B88E2F] mb-4">3</div>
               <h3 className="font-medium mb-2">Shipping</h3>
-              <p className="text-gray-600">Your order will be dispatched soon</p>
+              <p className="text-gray-600">
+                Your order will be dispatched soon
+              </p>
             </div>
           </div>
         </div>
