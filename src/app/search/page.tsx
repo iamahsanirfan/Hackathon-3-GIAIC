@@ -1,6 +1,6 @@
 // app/search/page.tsx
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
@@ -34,6 +34,14 @@ interface SanityProduct {
 }
 
 export default function SearchPage() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <SearchContent />
+    </Suspense>
+  );
+}
+
+function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [products, setProducts] = useState<SanityProduct[]>([]);
@@ -44,7 +52,6 @@ export default function SearchPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // Rename the parameter from $query to $searchQuery in the GROQ query
         const searchResults = await sanity.fetch(
           `*[_type == "product" && (
             name match $searchQuery ||
@@ -164,3 +171,5 @@ const LoadingSpinner = () => (
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#B88E2F]" />
   </div>
 );
+
+// export const dynamic = 'force-dynamic';
