@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -5,14 +6,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CartProvider } from "../context/CartContext";
 import { CartSlider } from "./components/CartSlider";
-import { WishlistProvider } from "src/context/WishlistContext"
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
+import { WishlistProvider } from "../context/WishlistContext";
+import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,19 +22,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      appearance={{
+        variables: {
+          colorPrimary: "#B88E2F"
+        }
+      }}
+    >
       <html lang="en">
-      <body>
-        <CartProvider>
-        <WishlistProvider>
-        <ClerkProvider>
-          <Header />
-          {children}
-          <CartSlider />
-          <Footer />
-        </ClerkProvider>
-        </WishlistProvider>
-        </CartProvider>
-      </body>
-    </html>
+        <body className={inter.className}>
+          <CartProvider>
+            <WishlistProvider>
+              <Header />
+              {children}
+              <CartSlider />
+              <Footer />
+            </WishlistProvider>
+          </CartProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
