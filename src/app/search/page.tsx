@@ -44,16 +44,17 @@ export default function SearchPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        // Rename the parameter from $query to $searchQuery in the GROQ query
         const searchResults = await sanity.fetch(
           `*[_type == "product" && (
-            name match $query ||
-            description match $query ||
-            category match $query
+            name match $searchQuery ||
+            description match $searchQuery ||
+            category match $searchQuery
           )]{
             _id, name, price, description, category,
             stockLevel, discountPercentage, image
           }`,
-          { query: `*${query}*` }
+          { searchQuery: `*${query}*` }
         );
         setProducts(searchResults);
       } catch (error) {
