@@ -9,15 +9,16 @@ export default {
 module.exports = {
   env: {
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+
+    webpack: (config) => {
+      config.resolve.fallback = { 
+        ...config.resolve.fallback,
+        punycode: false 
+      }
+      return config}
   },
 }
 
-module.exports = {
-  webpack: (config) => {
-    config.resolve.fallback = { 
-      ...config.resolve.fallback,
-      punycode: false 
-    }
-    return config
-  },
-}
+
+  
+  
