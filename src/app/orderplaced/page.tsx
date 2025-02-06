@@ -1,4 +1,3 @@
-// app/orderplaced/page.tsx
 'use client'
 import Image from "next/image"
 import Link from "next/link"
@@ -10,7 +9,7 @@ export default function OrderPlacedPage() {
 
   useEffect(() => {
     clearCart()
-  }, []) // Removed clearCart from dependencies to only run once on mount
+  }, [clearCart]) // Added clearCart to dependency array
 
   return (
     <main className="min-h-screen bg-[#FAF4F4] pt-24 px-4 md:px-8 lg:px-16">
@@ -33,12 +32,12 @@ export default function OrderPlacedPage() {
         </p>
 
         <div className="bg-white rounded-xl p-8 shadow-lg mb-12">
-          <h2 className="text-2xl font-semibold mb-6">What's Next?</h2>
+          <h2 className="text-2xl font-semibold mb-6">What&apos;s Next?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-4">
               <div className="text-4xl text-[#B88E2F] mb-4">1</div>
               <h3 className="font-medium mb-2">Order Processing</h3>
-              <p className="text-gray-600">We're preparing your items for shipment</p>
+              <p className="text-gray-600">We&apos;re preparing your items for shipment</p>
             </div>
             <div className="p-4">
               <div className="text-4xl text-[#B88E2F] mb-4">2</div>
