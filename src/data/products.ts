@@ -1,0 +1,17 @@
+export const products = [
+    { id: 1, image: "/trenton.png", name: "Trenton modular single sofa 3", price: "25,000.00" },
+    { id: 2, image: "/dining_table.png", name: "Granite dining table with chair", price: "25,000.00" },
+    { id: 3, image: "/outdoor_bar.png", name: "Outdoor bar table and stool", price: "25,000.00" },
+    { id: 4, image: "/console.png", name: "Plain console with teak mirror", price: "25,000.00" },
+    { id: 5, image: "/grain.png", name: "Grain coffee table", price: "15,000.00" },
+    { id: 6, image: "/Kent.png", name: "Kent coffee table", price: "251,000.00" },
+    { id: 7, image: "/round.png", name: "Round coffee table", price: "255,000.00" },
+    { id: 8, image: "/teak.png", name: "Teak coffee table", price: "25,200.00" },
+    { id: 9, image: "/plain.png", name: "Plain console", price: "258,200.00" },
+    { id: 10, image: "/sjp.png", name: "SJP", price: "200,000.00" },
+    { id: 11, image: "/sideboard.png", name: "Teak sideboard", price: "20,000.00" },
+    { id: 12, image: "/bella.png", name: "Chair & table", price: "100,000.00" },
+    { id: 13, image: "/table1.png", name: "Side table", price: "258,000.00" },
+    { id: 14, image: "/asgard.png", name: "Asgard sofa", price: "250,000.00" },
+    { id: 15, image: "/maya.png", name: "Maya sofa", price: "115,000.00" },
+    { id: 16, image: "/outdoor.png", name: "Outdoor sofa", price: "244,000.00" },]

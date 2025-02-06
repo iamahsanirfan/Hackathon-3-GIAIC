@@ -1,0 +1,9 @@
+Test Case ID,Description,Steps,Expected Result,Actual Result,Status,Severity,Remarks
+TC001,Product Listing Page,Open & Verify,Products display correctly,Products displayed,Passed,Low,No issues
+TC002,API Error Handling,Disconnect API & Refresh,Error message shown,Error displayed,Passed,Medium,No issues
+TC003,Cart Functionality,Add to cart & Verify,Cart updates correctly,Cart updated,Passed,High,No issues
+TC004,Mobile Responsiveness,Resize window,Layout adjusts,Layout responsive,Passed,Medium,No issues
+TC005,Clerk Authentication,Login/Signup,Successful authentication,Works correctly,Passed,High,No issues
+TC006,Wishlist Feature,Add to wishlist,Item added correctly,Works as expected,Passed,High,No issues
+TC007,Search Feature,Search item,Relevant results displayed,Works correctly,Passed,High,No issues
+TC008,Filter Feature,Apply filters,Items displayed as per filter,Works correctly,Passed,High,No issues
