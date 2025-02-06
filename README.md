@@ -74,11 +74,11 @@ Every test affirmed that the system was robust and ready for live deployment.
 
 Finally, on Day 6, I deployed the project to Vercel:
 
-- **Deployment Process:** I connected the GitHub repository to Vercel, set up the required environment variables (for Sanity, Clerk, Stripe, etc.), and initiated the deployment.
+- **Deployment Process:** I connected the GitHub repository to Vercel, set up the required environment variables (for Sanity, Clerk.), and initiated the deployment.
 - **Live Testing:** After deployment, I verified that the live version was working perfectly, with all features functioning as expected.
 - **Public Access:** The project is now live and accessible via a public URL on Vercel, allowing users to experience the Premium Furniture Marketplace from anywhere.
 
-You can check out the live version here: [https://your-vercel-app-url.vercel.app](https://your-vercel-app-url.vercel.app) *(Replace with your actual deployed URL)*
+You can check out the live version here: [https://your-vercel-app-url.vercel.app](https://your-vercel-app-url.vercel.app)](https://hackathon-3-giaic-omega.vercel.app/) *(Replace with your actual deployed URL)*
 
 ---
 
