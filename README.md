@@ -1,6 +1,6 @@
 # Premium Furniture Marketplace
 
-Hello and welcome! I'm excited to present my Premium Furniture Marketplace project—a full-stack e-commerce platform built during an intense 6-day hackathon. This project is designed for busy professionals who want to shop for premium furniture without the hassle of visiting physical stores. In this document, I'll walk you through my journey from initial concept and planning to the final live deployment on Vercel.
+Hello and welcome! I'm excited to present my Premium Furniture Marketplace project—a frontend e-commerce platform built during an intense 6-day hackathon. This project is designed for busy professionals who want to shop for premium furniture without the hassle of visiting physical stores. In this document, I'll walk you through my journey from initial concept and planning to the final live deployment on Vercel.
 
 ---
 
